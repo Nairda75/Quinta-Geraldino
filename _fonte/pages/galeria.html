@@ -1,0 +1,40 @@
+<!--{"file":"galeria.html","title":"Galeria | Quinta Geraldino","title_en":"Gallery | Quinta Geraldino","desc":"Fotografias de casamentos, batizados, festas e mesas na Quinta Geraldino, em Gemunde, Maia.","nav":"galeria"}-->
+<section class="page-hero">
+  <div class="wrap">
+    <h1 data-en="Gallery">Galeria</h1>
+    <p class="lead" data-en="Tables, flowers and celebrations at Quinta Geraldino. Tap a photo to see it full size.">Mesas, flores e celebrações na Quinta Geraldino. Toque numa fotografia para a ver em grande.</p>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:clamp(72px,10vw,140px)" aria-label="Fotografias" data-en-aria="Photos">
+  <div class="filters" role="group" aria-label="Filtrar fotografias" data-en-aria="Filter photos">
+    <button type="button" data-filter="all" aria-pressed="true"><span data-en="All">Todas</span><span class="n">{{N_all}}</span></button>
+    <button type="button" data-filter="casamentos" aria-pressed="false"><span data-en="Weddings">Casamentos</span><span class="n">{{N_casamentos}}</span></button>
+    <button type="button" data-filter="batizados" aria-pressed="false"><span data-en="Christenings">Batizados</span><span class="n">{{N_batizados}}</span></button>
+    <button type="button" data-filter="festas" aria-pressed="false"><span data-en="Parties">Festas</span><span class="n">{{N_festas}}</span></button>
+    <button type="button" data-filter="natal" aria-pressed="false"><span data-en="Christmas">Natal</span><span class="n">{{N_natal}}</span></button>
+    <button type="button" data-filter="mesas" aria-pressed="false"><span data-en="Tables and details">Mesas e detalhes</span><span class="n">{{N_mesas}}</span></button>
+    <button type="button" data-filter="espacos" aria-pressed="false"><span data-en="Spaces">Espaços</span><span class="n">{{N_espacos}}</span></button>
+  </div>
+  <div class="masonry">
+{{GALLERY}}
+  </div>
+</section>
+
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Fotografia em grande" data-en-aria="Full-size photo">
+  <img alt="">
+  <button type="button" class="lb-close" aria-label="Fechar" data-en-aria="Close">{{icon:close}}</button>
+  <button type="button" class="lb-prev" aria-label="Anterior" data-en-aria="Previous">{{icon:left}}</button>
+  <button type="button" class="lb-next" aria-label="Seguinte" data-en-aria="Next">{{icon:right}}</button>
+  <div class="lb-count" aria-live="polite"></div>
+</div>
+
+<section class="section--tight dark">
+  <div class="wrap visit-cta">
+    <div>
+      <h2 data-en="Like what you see?">Gostou do que viu?</h2>
+      <p class="lead" style="margin-top:16px" data-en="Come and see the Quinta in person and tell us about your event.">Venha conhecer a Quinta ao vivo e conte-nos como imagina o seu evento.</p>
+    </div>
+    <div><a class="btn btn--limao" href="visitas.html">{{icon:cal}}<span data-en="Book a visit">Agendar visita</span></a></div>
+  </div>
+</section>

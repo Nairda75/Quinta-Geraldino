@@ -1,70 +1,46 @@
-# Quinta do Geraldino — Website
+# Quinta Geraldino — website
 
-Site estático (HTML + CSS + JS puro, sem frameworks) para a Quinta do Geraldino.
-5 páginas: `index.html` (Home), `a-quinta.html`, `casamentos.html`, `eventos.html`, `contacto.html`.
+Site multipágina (PT/EN) da Quinta Geraldino, espaço para casamentos e eventos em Gemunde, Maia.
+Feito pela UNO Studio. Site estático, pronto para GitHub Pages ou Netlify (sem passo de build no servidor).
 
-## Antes de publicar
+## Páginas
 
-- Todos os quadrados a dizer `[ FOTO — ... ]` são placeholders. Substitui pelas
-  fotografias reais dentro de `assets/img/` e troca cada `<div class="img-placeholder">`
-  por `<img src="assets/img/nome-do-ficheiro.jpg" alt="...">`.
-- Tudo marcado a verde `[ A CONFIRMAR ]` no site (capacidade, telefone, email,
-  cerimónia civil, etc.) precisa de confirmação da Quinta antes de ir ao ar.
+| Ficheiro | Conteúdo |
+|---|---|
+| `index.html` | Início: apresentação com os momentos do dia, "Um dia na Quinta" hora a hora, tipos de evento, Réveillon 2027, chamada para visita |
+| `espacos.html` | Salão interior, jardim, cerimónia ao ar livre, lounge, catering, mobiliário e decoração, estacionamento |
+| `eventos.html` | Casamentos, batizados, aniversários, empresas e Réveillon 2027 |
+| `galeria.html` | 79 fotografias com filtros e visualizador (nenhuma repete as fotos usadas nas outras páginas) |
+| `visitas.html` | Agendamento de visitas: calendário com os horários da Quinta e pedido enviado por WhatsApp ou email |
+| `contactos.html` | WhatsApp, telefone, email, morada, mapa e horário de visitas |
 
-## 1. Colocar no GitHub
+## Regras do agendamento (`assets/js/visitas.js`)
 
-1. Cria um repositório novo em https://github.com/new (ex: `quinta-geraldino-site`).
-2. No teu computador, dentro desta pasta:
-   ```bash
-   git init
-   git add .
-   git commit -m "Primeira versão do site"
-   git branch -M main
-   git remote add origin https://github.com/TEU-UTILIZADOR/quinta-geraldino-site.git
-   git push -u origin main
-   ```
-   (substitui `TEU-UTILIZADOR` pelo teu nome de utilizador no GitHub)
+- Segunda a sexta: 9h–17h, visitas de hora a hora (última às 16h, porque a visita dura até 60 min).
+- Sábado e domingo: 9h–12h (última às 11h).
+- Marcações a partir do dia seguinte, até 4 meses à frente.
+- O pedido abre o WhatsApp da Quinta (+351 916 604 527) com a mensagem preenchida. A Quinta confirma ou sugere outra hora.
 
-## 2. Publicar no Netlify
+A área de cliente e da gerente (login, aprovação de visitas, calendário de ocupação e notificações automáticas) fica para a fase 2, com base de dados.
 
-1. Entra em https://app.netlify.com e faz login (podes usar a conta GitHub).
-2. Clica em **Add new site → Import an existing project**.
-3. Escolhe **GitHub** e seleciona o repositório `quinta-geraldino-site`.
-4. Não precisas de "build command" nem "publish directory" especiais —
-   deixa o **Publish directory** como `/` (a raiz) porque é um site estático.
-5. Clica em **Deploy site**. Em menos de um minuto tens um link tipo
-   `https://nome-aleatorio.netlify.app` já online.
-6. (Opcional) Em **Site settings → Change site name** podes escolher um
-   nome mais bonito, ex: `quintadogeraldino.netlify.app`.
-7. (Opcional) Em **Domain settings** podes ligar um domínio próprio
-   (ex: `quintadogeraldino.pt`) se o cliente tiver um.
+## Como editar
 
-A partir daqui, sempre que fizeres `git push` para o `main`, o Netlify
-publica automaticamente a nova versão — não precisas de repetir o deploy manualmente.
+Os textos estão nas páginas em `_fonte/pages/`. Cada texto tem a versão inglesa no atributo `data-en`.
+Depois de editar, gerar as páginas outra vez:
 
-## 3. Ativar o formulário de contacto (Netlify Forms — grátis)
-
-O formulário em `contacto.html` já está preparado. Para começar a receber
-os pedidos por email:
-
-1. Abre `contacto.html`.
-2. No `<form>`, muda `data-netlify="false"` para `data-netlify="true"`.
-3. Faz commit e push. O Netlify deteta o formulário automaticamente no deploy seguinte.
-4. Em **Site settings → Forms → Form notifications** no Netlify, adiciona
-   o teu email (ou o do cliente) para receberes uma notificação a cada pedido.
-
-## Estrutura de ficheiros
-
+```bash
+cd _fonte
+python3 build.py   # escreve os .html na pasta raiz (ajustar ROOT/OUT no topo do ficheiro)
 ```
-quinta-geraldino/
-├── index.html
-├── a-quinta.html
-├── casamentos.html
-├── eventos.html
-├── contacto.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-└── assets/img/   ← colocar aqui as fotografias reais
-```
+
+`proc.py` gera as versões web das fotografias (`-l` 1800 px e `-m` 820 px) a partir das originais.
+
+## Tipografia
+
+Gloock e Hanken Grotesk, alojadas no próprio site (`assets/fonts`, licença SIL Open Font License).
+
+## Publicação (Netlify)
+
+Sem comando de build. *Publish directory* = `/` (raiz). Cada `git push` para `main` publica a nova versão.
+
+Os endereços da versão antiga (`a-quinta.html`, `casamentos.html`, `contacto.html`) redirecionam para as páginas novas, para não haver links partidos.

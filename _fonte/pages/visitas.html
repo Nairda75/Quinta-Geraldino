@@ -1,0 +1,91 @@
+<!--{"file":"visitas.html","title":"Agendar visita | Quinta Geraldino","title_en":"Book a visit | Quinta Geraldino","desc":"Escolha o dia e a hora para visitar a Quinta Geraldino. Visitas de segunda a sexta das 9h às 17h e ao fim de semana das 9h às 12h.","nav":"visitas","extra_js":"\n<script src=\"assets/js/visitas.js\"></script>"}-->
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <h1 data-en="Book a visit">Agendar visita</h1>
+    </div>
+    <p class="lead" data-en="Pick a day and time. Your request reaches us on WhatsApp and we confirm the visit, or suggest another time if that slot is taken.">Escolha o dia e a hora. O pedido chega-nos pelo WhatsApp e confirmamos a visita, ou sugerimos outra hora se essa já estiver ocupada.</p>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:clamp(64px,9vw,120px)">
+  <div class="booking">
+    <div class="panel" aria-labelledby="t-dia">
+      <h2 id="t-dia" data-en="Day and time">Dia e hora</h2>
+      <span class="step-label" data-en="Visits take 30 to 60 minutes.">As visitas demoram entre 30 e 60 minutos.</span>
+      <div class="cal-head">
+        <strong id="cal-month" aria-live="polite"></strong>
+        <div class="cal-nav">
+          <button type="button" id="cal-prev" aria-label="Mês anterior" data-en-aria="Previous month">{{icon:left}}</button>
+          <button type="button" id="cal-next" aria-label="Mês seguinte" data-en-aria="Next month">{{icon:right}}</button>
+        </div>
+      </div>
+      <div class="cal" id="cal" role="group" aria-labelledby="cal-month"></div>
+      <div class="slots-wrap">
+        <p class="slots-empty" id="slots-empty" data-en="Choose a day to see the available times.">Escolha um dia para ver as horas disponíveis.</p>
+        <div class="slots" id="slots" role="group" aria-label="Horas" data-en-aria="Times"></div>
+      </div>
+    </div>
+
+    <form class="panel form" id="visit-form" novalidate aria-labelledby="t-dados">
+      <div>
+        <h2 id="t-dados" data-en="Your details">Os seus dados</h2>
+        <span class="step-label" data-en="We only use them to confirm the visit.">Só os usamos para confirmar a visita.</span>
+      </div>
+      <div class="summary empty" id="summary" aria-live="polite" data-en="No day or time chosen yet.">Ainda não escolheu o dia e a hora.</div>
+      <div class="field">
+        <label for="f-nome" data-en="Name">Nome</label>
+        <input id="f-nome" name="nome" autocomplete="name" required>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="f-tel" data-en="Mobile phone">Telemóvel</label>
+          <input id="f-tel" name="telefone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="9xx xxx xxx" data-en-ph="+351 9xx xxx xxx">
+        </div>
+        <div class="field">
+          <label for="f-tipo" data-en="Type of event">Tipo de evento</label>
+          <select id="f-tipo" name="tipo" required>
+            <option value="" data-en="Choose">Escolher</option>
+            <option value="casamento" data-en="Wedding">Casamento</option>
+            <option value="batizado" data-en="Christening">Batizado</option>
+            <option value="aniversario" data-en="Birthday">Aniversário</option>
+            <option value="empresa" data-en="Corporate event">Evento de empresa</option>
+            <option value="outro" data-en="Other">Outro</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="f-data"><span data-en="Event date">Data do evento</span> <span class="hint" data-en="(if you know it)">(se já souber)</span></label>
+          <input id="f-data" name="data_evento" placeholder="ex.: junho de 2027" data-en-ph="e.g. June 2027">
+        </div>
+        <div class="field">
+          <label for="f-conv"><span data-en="Guests">Convidados</span> <span class="hint" data-en="(approx.)">(aprox.)</span></label>
+          <input id="f-conv" name="convidados" type="number" inputmode="numeric" min="1" max="500" placeholder="120">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-msg"><span data-en="Message">Mensagem</span> <span class="hint" data-en="(optional)">(opcional)</span></label>
+        <textarea id="f-msg" name="mensagem" placeholder="Conte-nos um pouco sobre o que imagina." data-en-ph="Tell us a little about what you have in mind."></textarea>
+      </div>
+      <p class="error" id="form-error" role="alert" hidden></p>
+      <div class="form-actions">
+        <button class="btn btn--musgo" type="submit">{{icon:wa}}<span data-en="Send request on WhatsApp">Enviar pedido pelo WhatsApp</span></button>
+        <a class="link" href="mailto:geral@jalmeida.pt" id="mail-alt" data-en="Send by email instead">Prefiro enviar por email</a>
+      </div>
+      <p class="small" id="form-ok" hidden data-en="Your message is ready in WhatsApp. Just press send and we'll confirm the visit as soon as possible.">A mensagem ficou pronta no WhatsApp. Só falta carregar em enviar e confirmamos a visita o mais depressa possível.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section dark" aria-labelledby="t-como">
+  <div class="wrap">
+    <h2 id="t-como" style="margin-bottom:clamp(28px,4vw,52px)" data-en="How the visit works">Como funciona a visita</h2>
+    <ol class="steps">
+      <li><h3 data-en="Choose a time">Escolhe a hora</h3><p data-en="Weekdays from 9am to 5pm, weekends from 9am to 12pm.">Dias úteis das 9h às 17h, fins de semana das 9h às 12h.</p></li>
+      <li><h3 data-en="We confirm">Confirmamos</h3><p data-en="We reply on WhatsApp to confirm, or to suggest another time if that one is taken.">Respondemos pelo WhatsApp a confirmar, ou a sugerir outra hora se essa estiver ocupada.</p></li>
+      <li><h3 data-en="Visit the Quinta">Visita a Quinta</h3><p data-en="30 to 60 minutes to walk through the hall, the garden and the lounge, and talk about your event.">30 a 60 minutos para conhecer o salão, o jardim e o lounge, e falar sobre o seu evento.</p></li>
+      <li><h3 data-en="Receive your proposal">Recebe a proposta</h3><p data-en="After the visit we send a tailored proposal, with menu and prices for your event.">Depois da visita enviamos uma proposta à medida, com menu e preços para o seu evento.</p></li>
+    </ol>
+  </div>
+</section>
