@@ -49,13 +49,7 @@
     b.addEventListener("click", function () { store("qg-lang", b.dataset.lang); applyLang(b.dataset.lang); });
   });
 
-  /* ---------- Cabeçalho e menu móvel ---------- */
-  var header = document.querySelector(".site-header");
-  if (header && document.body.classList.contains("page-home")) {
-    var waF = document.querySelector(".wa-float");
-    var onScroll = function () { var past = window.scrollY > window.innerHeight * 0.6; header.classList.toggle("solid", past); if (waF) waF.classList.toggle("hidden", !past); };
-    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
-  }
+  /* ---------- Menu móvel ---------- */
   var menu = document.querySelector(".mobile-menu");
   var openBtn = document.querySelector(".menu-btn");
   var closeBtn = document.querySelector(".close-btn");
@@ -64,39 +58,63 @@
     menu.classList.toggle("open", open);
     openBtn.setAttribute("aria-expanded", open ? "true" : "false");
     document.body.style.overflow = open ? "hidden" : "";
-    if (open) closeBtn.focus(); else openBtn.focus();
+    if (open) closeBtn.focus(); else if (openBtn.offsetParent) openBtn.focus();
   }
   if (openBtn) openBtn.addEventListener("click", function () { setMenu(true); });
   if (closeBtn) closeBtn.addEventListener("click", function () { setMenu(false); });
+  document.querySelectorAll(".dock-menu").forEach(function (b) { b.addEventListener("click", function () { setMenu(true); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && menu && menu.classList.contains("open")) setMenu(false); });
 
-  /* ---------- Hero: capítulos do dia ---------- */
-  var hero = document.querySelector(".hero");
-  if (hero) {
-    var slides = hero.querySelectorAll(".hero-slide");
-    var chapters = hero.querySelectorAll(".hero-chapters button");
-    var idx = 0, timer = null, DUR = 6500;
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function show(i) {
-      idx = (i + slides.length) % slides.length;
-      slides.forEach(function (s, k) { s.classList.toggle("active", k === idx); });
-      chapters.forEach(function (c, k) {
-        c.classList.remove("active"); void c.offsetWidth;
-        c.classList.toggle("active", k === idx);
-        c.setAttribute("aria-current", k === idx ? "true" : "false");
-      });
-      // pré-carregar a seguinte
-      var next = slides[(idx + 1) % slides.length].querySelector("img");
-      if (next && next.loading === "lazy") next.loading = "eager";
-      schedule();
+  /* ---------- Cinema: vídeo de drone (se existir) ou fotografias ---------- */
+  var cin = document.querySelector(".cinema");
+  if (cin) {
+    var cslides = cin.querySelectorAll(".cin-slide"), cap = cin.querySelector(".cin-caption"), ci = 0, ctimer = null;
+    var reduceM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function cshow(i) {
+      ci = (i + cslides.length) % cslides.length;
+      cslides.forEach(function (s, k) { s.classList.toggle("active", k === ci); });
+      if (cap) cap.textContent = cslides[ci].dataset[window.QG.lang === "en" ? "capEn" : "cap"] || "";
+      var nx = cslides[(ci + 1) % cslides.length].querySelector("img"); if (nx) nx.loading = "eager";
     }
-    function schedule() { clearTimeout(timer); if (!reduce && !hero.classList.contains("paused")) timer = setTimeout(function () { show(idx + 1); }, DUR); }
-    chapters.forEach(function (c, k) { c.addEventListener("click", function () { show(k); }); });
-    hero.style.setProperty("--dur", DUR + "ms");
-    document.addEventListener("visibilitychange", function () { if (document.hidden) clearTimeout(timer); else schedule(); });
-    if (reduce) hero.classList.add("paused");
-    show(0);
+    var video = cin.querySelector("video");
+    var cio = new IntersectionObserver(function (es) {
+      var on = es[0].isIntersecting;
+      if (on && video && !video.dataset.tried) {
+        video.dataset.tried = "1";
+        var small = window.matchMedia("(max-width: 760px)").matches;
+        var src = small && video.dataset.srcMobile ? video.dataset.srcMobile : video.dataset.src;
+        video.addEventListener("loadeddata", function () { cin.classList.add("has-video"); }, { once: true });
+        video.addEventListener("error", function () { video.remove(); video = null; }, true);
+        var s = document.createElement("source"); s.src = src; s.type = "video/mp4";
+        s.addEventListener("error", function () { if (video) { video.remove(); video = null; } });
+        video.appendChild(s); video.load();
+      }
+      if (video) { if (on && !reduceM) video.play().catch(function () {}); else video.pause(); }
+      clearInterval(ctimer);
+      if (on && !reduceM && cslides.length > 1) ctimer = setInterval(function () { cshow(ci + 1); }, 5200);
+    }, { threshold: 0.15 });
+    cio.observe(cin);
+    cshow(0);
+    document.addEventListener("qg:lang", function () { cshow(ci); });
   }
+
+  /* ---------- Vista aérea: capítulos e botão inicial ---------- */
+  var aer = document.querySelector(".aerial");
+  if (aer) {
+    var chs = aer.querySelectorAll(".aerial-chapters button"), intro = aer.querySelector(".aerial-intro");
+    aer.addEventListener("aerial:progress", function (e) {
+      var p = e.detail, cur = -1;
+      chs.forEach(function (b, k) { if (p >= +b.dataset.goto - 0.04) cur = k; });
+      chs.forEach(function (b, k) { b.classList.toggle("on", k === cur); });
+      if (intro) intro.style.pointerEvents = p > 0.1 ? "none" : "";
+    });
+  }
+
+  /* ---------- Mapa real: só fica interativo depois de tocar (não prende o scroll) ---------- */
+  document.querySelectorAll(".real-map").forEach(function (m) {
+    var lock = m.querySelector(".map-lock");
+    if (lock) lock.addEventListener("click", function () { m.classList.add("live"); });
+  });
 
   /* ---------- Um dia na Quinta ---------- */
   var steps = document.querySelectorAll(".day-step");

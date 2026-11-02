@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-<body class="page-home">
+<body class="page-home page-inicio">
 <a class="skip" href="#conteudo" data-en="Skip to content">Saltar para o conteúdo</a>
 <header class="site-header">
   <div class="wrap">
@@ -26,6 +26,7 @@
 <a href="espacos.html" data-en="Spaces">Espaços</a>
 <a href="eventos.html" data-en="Events">Eventos</a>
 <a href="galeria.html" data-en="Gallery">Galeria</a>
+<a href="avaliacoes.html" data-en="Reviews">Avaliações</a>
 <a href="contactos.html" data-en="Contact">Contactos</a>
     </nav>
     <div class="header-actions">
@@ -45,6 +46,7 @@
 <a href="espacos.html" data-en="Spaces">Espaços</a>
 <a href="eventos.html" data-en="Events">Eventos</a>
 <a href="galeria.html" data-en="Gallery">Galeria</a>
+<a href="avaliacoes.html" data-en="Reviews">Avaliações</a>
 <a href="visitas.html" data-en="Book a visit">Agendar visita</a>
 <a href="contactos.html" data-en="Contact">Contactos</a>
   </nav>
@@ -54,48 +56,93 @@
   </div>
 </div>
 <main id="conteudo">
-<section class="hero" aria-label="Apresentação" data-en-aria="Introduction">
-  <div class="hero-slides">
-    <div class="hero-slide active"><img src="assets/img/039-l.jpg" srcset="assets/img/039-m.jpg 820w, assets/img/039-l.jpg 1800w" sizes="100vw" width="1800" height="1201" alt="Cerimónia preparada no jardim da Quinta, com cadeiras de madeira e arranjo floral" data-en-alt="Ceremony set up in the Quinta's garden, with wooden chairs and a floral arrangement" fetchpriority="high"></div>
-    <div class="hero-slide"><img src="assets/img/161-l.jpg" srcset="assets/img/161-m.jpg 546w, assets/img/161-l.jpg 1066w" sizes="100vw" width="1066" height="1600" alt="Zona de lounge com sofás de bambu e oliveiras" data-en-alt="Lounge area with bamboo sofas and olive trees" loading="lazy" decoding="async"></div>
-    <div class="hero-slide"><img src="assets/img/013-l.jpg" srcset="assets/img/013-m.jpg 820w, assets/img/013-l.jpg 1600w" sizes="100vw" width="1600" height="1066" alt="Mesa imperial posta no salão interior, com velas acesas" data-en-alt="Long banquet table in the indoor hall, with lit candles" loading="lazy" decoding="async"></div>
-    <div class="hero-slide"><img src="assets/img/027-l.jpg" srcset="assets/img/027-m.jpg 547w, assets/img/027-l.jpg 1201w" sizes="100vw" width="1201" height="1800" alt="Mesa dos noivos com cadeiras de verga e flores brancas e limões" data-en-alt="Sweetheart table with wicker chairs, white flowers and lemons" loading="lazy" decoding="async"></div>
-  </div>
-  <div class="hero-content">
-    <div class="wrap">
-      <div>
+<section class="aerial" aria-label="Vista aérea da Quinta Geraldino" data-en-aria="Aerial view of Quinta Geraldino">
+  <div class="aerial-sticky">
+    <div class="aerial-sky"></div>
+    <div class="aerial-canvas" aria-hidden="true"></div>
+    <img src="assets/img/039-l.jpg" srcset="assets/img/039-m.jpg 820w, assets/img/039-l.jpg 1800w" sizes="100vw" width="1800" height="1201" alt="Cerimónia preparada no jardim da Quinta" data-en-alt="Ceremony set up in the Quinta's garden" class="aerial-fallback" fetchpriority="high">
+    <div class="aerial-shade"></div>
+    <div class="aerial-progress" aria-hidden="true"></div>
+
+    <div class="spot" data-spot data-x="392" data-y="176" data-h="13" data-from="0.10" data-to="0.36" aria-hidden="true"><span class="dot"></span><span class="card"><strong data-en="Indoor hall">Salão interior</strong><span data-en="Up to 500 guests, long or round tables">Até 500 convidados, mesas imperiais ou redondas</span></span></div>
+    <div class="spot" data-spot data-x="440" data-y="250" data-h="3" data-from="0.32" data-to="0.55" aria-hidden="true"><span class="dot"></span><span class="card"><strong data-en="The lawn">Relvado</strong><span data-en="Outdoor ceremonies, a few steps from the hall">Cerimónias ao ar livre, a poucos passos do salão</span></span></div>
+    <div class="spot" data-spot data-x="468" data-y="330" data-h="12" data-from="0.50" data-to="0.72" aria-hidden="true"><span class="dot"></span><span class="card"><strong data-en="The garden">Jardim</strong><span data-en="Palm trees, shade and corners for photos">Palmeiras, sombra e recantos para fotografias</span></span></div>
+    <div class="spot" data-spot data-x="560" data-y="290" data-h="3" data-from="0.68" data-to="0.87" aria-hidden="true"><span class="dot"></span><span class="card"><strong data-en="Parking">Estacionamento</strong><span data-en="Parking for your guests, on site">Estacionamento para os convidados, na própria Quinta</span></span></div>
+    <div class="spot" data-spot data-x="425" data-y="452" data-h="3" data-from="0.84" data-to="1" aria-hidden="true"><span class="dot"></span><span class="card"><strong data-en="Entrance">Entrada</strong><span>Rua Nova da Bajouca 572</span></span></div>
+
+    <div class="aerial-intro">
+      <div class="wrap">
         <h1 data-en="Celebrate as if you were at home.">Celebrar como quem está em casa.</h1>
         <p class="lead" data-en="Garden, hall and lounge for weddings, christenings and parties of up to 500 guests, in Gemunde, Maia.">Jardim, salão e lounge para casamentos, batizados e festas até 500 convidados, em Gemunde, na Maia.</p>
-        <div class="actions">
-          <a class="btn btn--limao" href="visitas.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-en="Book a visit">Agendar visita</span></a>
-          <a class="btn btn--linha" href="espacos.html" data-en="See the spaces">Ver os espaços</a>
-        </div>
+        <a class="btn btn--limao" href="visitas.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-en="Book a visit">Agendar visita</span></a>
       </div>
-      <ol class="hero-chapters" aria-label="Momentos na Quinta" data-en-aria="Moments at the Quinta">
-        <li><button type="button"><span data-en="Ceremony in the garden">Cerimónia no jardim</span><span class="t">16:30</span></button></li>
-        <li><button type="button"><span data-en="Cocktail lounge">Cocktail no lounge</span><span class="t">17:30</span></button></li>
-        <li><button type="button"><span data-en="Dinner in the hall">Jantar no salão</span><span class="t">19:30</span></button></li>
-        <li><button type="button"><span data-en="Sweetheart table">Mesa dos noivos</span><span class="t">20:00</span></button></li>
-      </ol>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><span data-en="Scroll to fly around the Quinta">Desça para dar a volta à Quinta</span><i></i></div>
+
+    <ol class="aerial-chapters" aria-label="Partes da Quinta" data-en-aria="Parts of the Quinta">
+      <li><button type="button" data-goto="0.2" data-en="Hall">Salão</button></li>
+      <li><button type="button" data-goto="0.42" data-en="Lawn">Relvado</button></li>
+      <li><button type="button" data-goto="0.6" data-en="Garden">Jardim</button></li>
+      <li><button type="button" data-goto="0.77" data-en="Parking">Estacionamento</button></li>
+      <li><button type="button" data-goto="0.93" data-en="Entrance">Entrada</button></li>
+    </ol>
+
+    <div class="aerial-outro">
+      <div class="wrap">
+        <h2 data-en="All in one place, just for you.">Tudo no mesmo lugar, só para si.</h2>
+        <p data-en="Rua Nova da Bajouca 572, Gemunde, Maia. <a href='#mapa'>See the real satellite view</a>">Rua Nova da Bajouca 572, Gemunde, Maia. <a href="#mapa">Ver a vista de satélite real</a></p>
+      </div>
+    </div>
+    <p class="aerial-note" data-en="3D illustration based on the Quinta's layout">Ilustração 3D baseada na planta da Quinta</p>
+  </div>
+</section>
+
+<section class="section paper" id="mapa" aria-labelledby="mapa-titulo">
+  <div class="wrap where">
+    <div>
+      <h2 id="mapa-titulo" data-en="Seen from above, for real.">Vista de cima, a sério.</h2>
+      <p class="lead" style="margin-top:18px" data-en="This is the Quinta on the satellite map: the white-roofed hall, the lawn and garden in the middle, and parking around them. It sits in Gemunde, Maia, close to Porto.">Esta é a Quinta no mapa de satélite: o salão de telhado branco, o relvado e o jardim ao centro e o estacionamento à volta. Fica em Gemunde, na Maia, perto do Porto.</p>
+      <a class="link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Quinta+Geraldino,+Rua+Nova+da+Bajouca+572,+Gemunde" target="_blank" rel="noopener" data-en="Get directions">Como chegar</a>
+    </div>
+    <div class="real-map">
+      <iframe title="Vista de satélite da Quinta Geraldino no Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Quinta+Geraldino,+Rua+Nova+da+Bajouca+572,+4475-144+Gemunde&amp;t=k&amp;z=18&amp;output=embed"></iframe>
+      <button type="button" class="map-lock" data-en="Tap to explore the map">Toque para explorar o mapa</button>
     </div>
   </div>
 </section>
 
-<section class="section paper">
+<section class="section" aria-labelledby="intro-titulo">
   <div class="wrap intro">
     <figure><img src="assets/img/001-l.jpg" srcset="assets/img/001-m.jpg 546w, assets/img/001-l.jpg 1066w" sizes="(max-width: 820px) 100vw, 42vw" width="1066" height="1600" alt="Arranjos de flores em jarras douradas sobre uma consola de madeira" data-en-alt="Flower arrangements in golden vases on a wooden console" loading="lazy" decoding="async"></figure>
     <div>
-      <h2 data-en="Welcoming, relaxed and refined.">Acolhedora, descontraída e sofisticada.</h2>
+      <h2 id="intro-titulo" data-en="Welcoming, relaxed and refined.">Acolhedora, descontraída e sofisticada.</h2>
       <p class="lead" style="margin-top:22px" data-en="At Quinta Geraldino we want every guest to feel at home. We host one event at a time, so the garden, the hall and the lounge are yours for the whole day.">Na Quinta Geraldino queremos que cada convidado se sinta em casa. Recebemos um evento de cada vez, por isso o jardim, o salão e o lounge são seus durante todo o dia.</p>
       <p data-en="The kitchen is our own, and we take care of the furniture and decoration with you, from the first visit to the last dance.">A cozinha é da casa e o mobiliário e a decoração são pensados consigo, da primeira visita à última dança.</p>
       <div class="facts">
-        <div class="fact"><strong>500</strong><span data-en="guests at most, indoors or in the garden">convidados no máximo, no salão ou no jardim</span></div>
-        <div class="fact"><strong>1</strong><span data-en="event at a time, so the Quinta is all yours">evento de cada vez, com a Quinta só para si</span></div>
-        <div class="fact"><strong>3</strong><span data-en="spaces: hall, garden and cocktail lounge">espaços: salão, jardim e zona de cocktail</span></div>
+        <div class="fact"><strong data-count="500">500</strong><span data-en="guests at most, indoors or in the garden">convidados no máximo, no salão ou no jardim</span></div>
+        <div class="fact"><strong data-count="1">1</strong><span data-en="event at a time, so the Quinta is all yours">evento de cada vez, com a Quinta só para si</span></div>
+        <div class="fact"><strong data-count="3">3</strong><span data-en="spaces: hall, garden and cocktail lounge">espaços: salão, jardim e zona de cocktail</span></div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="cinema" aria-labelledby="cinema-titulo">
+  <div class="cin-slide" data-cap="Jantar no salão" data-cap-en="Dinner in the hall"><img src="assets/img/013-l.jpg" srcset="assets/img/013-m.jpg 820w, assets/img/013-l.jpg 1600w" sizes="100vw" width="1600" height="1066" alt="" loading="lazy" decoding="async"></div>
+  <div class="cin-slide" data-cap="Cocktail no lounge" data-cap-en="Cocktail in the lounge"><img src="assets/img/161-l.jpg" srcset="assets/img/161-m.jpg 546w, assets/img/161-l.jpg 1066w" sizes="100vw" width="1066" height="1600" alt="" loading="lazy" decoding="async"></div>
+  <div class="cin-slide" data-cap="Mesa dos noivos" data-cap-en="Sweetheart table"><img src="assets/img/027-l.jpg" srcset="assets/img/027-m.jpg 547w, assets/img/027-l.jpg 1201w" sizes="100vw" width="1201" height="1800" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <h2 id="cinema-titulo" data-en="From the garden to the hall, every moment has its place.">Do jardim ao salão, cada momento tem o seu lugar.</h2>
+    <p class="cin-caption" aria-live="off"></p>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span data-en="Weddings">Casamentos</span><span data-en="Christenings">Batizados</span><span data-en="Birthdays">Aniversários</span><span data-en="Corporate events">Eventos de empresa</span><span data-en="New Year's Eve">Réveillon</span>
+    <span data-en="Weddings">Casamentos</span><span data-en="Christenings">Batizados</span><span data-en="Birthdays">Aniversários</span><span data-en="Corporate events">Eventos de empresa</span><span data-en="New Year's Eve">Réveillon</span>
+  </div>
+</div>
 
 <section class="section dark" aria-labelledby="dia-titulo">
   <div class="wrap day">
@@ -157,14 +204,24 @@
   <div class="wrap">
     <h2 id="eventos-titulo" data-en="For every celebration">Para cada celebração</h2>
     <ul class="events-list">
-      <li><a href="eventos.html#casamentos" data-img="assets/img/104-m.jpg"><span class="name" data-en="Weddings">Casamentos</span><span class="desc" data-en="From the ceremony in the garden to dinner in the hall.">Do sim no jardim ao jantar no salão.</span></a></li>
-      <li><a href="eventos.html#batizados" data-img="assets/img/050-m.jpg"><span class="name" data-en="Christenings">Batizados</span><span class="desc" data-en="A calm day, with room for the whole family.">Um dia tranquilo, com espaço para a família toda.</span></a></li>
-      <li><a href="eventos.html#aniversarios" data-img="assets/img/191-m.jpg"><span class="name" data-en="Birthdays">Aniversários</span><span class="desc" data-en="Colourful tables to celebrate another year.">Mesas cheias de cor para celebrar mais um ano.</span></a></li>
-      <li><a href="eventos.html#empresas" data-img="assets/img/018-m.jpg"><span class="name" data-en="Corporate events">Eventos de empresa</span><span class="desc" data-en="Dinners, team gatherings and year-end parties.">Jantares, encontros de equipa e festas de fim de ano.</span></a></li>
+      <li><a href="eventos.html#casamentos" data-img="assets/img/104-m.jpg"><img class="thumb" src="assets/img/104-m.jpg" alt="" loading="lazy"><span class="name" data-en="Weddings">Casamentos</span><span class="desc" data-en="From the ceremony in the garden to dinner in the hall.">Do sim no jardim ao jantar no salão.</span></a></li>
+      <li><a href="eventos.html#batizados" data-img="assets/img/050-m.jpg"><img class="thumb" src="assets/img/050-m.jpg" alt="" loading="lazy"><span class="name" data-en="Christenings">Batizados</span><span class="desc" data-en="A calm day, with room for the whole family.">Um dia tranquilo, com espaço para a família toda.</span></a></li>
+      <li><a href="eventos.html#aniversarios" data-img="assets/img/191-m.jpg"><img class="thumb" src="assets/img/191-m.jpg" alt="" loading="lazy"><span class="name" data-en="Birthdays">Aniversários</span><span class="desc" data-en="Colourful tables to celebrate another year.">Mesas cheias de cor para celebrar mais um ano.</span></a></li>
+      <li><a href="eventos.html#empresas" data-img="assets/img/018-m.jpg"><img class="thumb" src="assets/img/018-m.jpg" alt="" loading="lazy"><span class="name" data-en="Corporate events">Eventos de empresa</span><span class="desc" data-en="Dinners, team gatherings and year-end parties.">Jantares, encontros de equipa e festas de fim de ano.</span></a></li>
     </ul>
     <div class="events-preview" aria-hidden="true"><img src="assets/img/104-m.jpg" alt=""></div>
-    <!-- pré-carregar as imagens da pré-visualização -->
-    <div hidden><img src="assets/img/050-m.jpg" alt="" loading="lazy"><img src="assets/img/191-m.jpg" alt="" loading="lazy"><img src="assets/img/018-m.jpg" alt="" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="section--tight paper" aria-labelledby="confianca-titulo">
+  <div class="wrap trust">
+    <div class="score">4,4</div>
+    <div>
+      <div class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg></div>
+      <h2 id="confianca-titulo" style="font-size:clamp(1.5rem,3vw,2.2rem);margin-top:8px" data-en="Rated by more than 400 guests on Google">Avaliada por mais de 400 pessoas no Google</h2>
+      <p class="small" style="margin-top:6px" data-en="4.4 out of 5 from 432 Google reviews, November 2026.">4,4 em 5, com 432 avaliações no Google em novembro de 2026.</p>
+    </div>
+    <a class="link" href="avaliacoes.html" data-en="Read and share reviews">Ler e partilhar avaliações</a>
   </div>
 </section>
 
@@ -173,31 +230,19 @@
   <div class="wrap">
     <h2 id="reveillon-titulo" data-en="New Year's Eve at the Quinta">Réveillon na Quinta</h2>
     <p class="lead" style="margin-top:16px;max-width:44ch" data-en="Welcome 2027 at Quinta Geraldino, with dinner, music and the house dressed up for the festive season.">Receba 2027 na Quinta Geraldino, com jantar, música e a casa vestida a rigor para as festas.</p>
-    <div class="actions">
-      <a class="btn btn--limao" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre o Réveillon 2027 na Quinta Geraldino (programa e reservas)." data-wa-en="Hello! I would like to know more about New Year's Eve 2027 at Quinta Geraldino (programme and bookings)."><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span data-en="Ask about New Year's Eve">Pedir informações</span></a>
-      <a class="btn btn--linha" href="eventos.html#reveillon" data-en="Find out more">Saber mais</a>
-    </div>
-  </div>
-</section>
-
-<section class="section dark">
-  <div class="wrap visit-cta">
-    <div>
-      <h2 data-en="Come and see the Quinta.">Venha conhecer a Quinta.</h2>
-      <p class="lead" style="margin-top:18px" data-en="Visits take 30 to 60 minutes. We show you around, listen to your idea and send you a tailored proposal after the visit.">As visitas demoram entre 30 e 60 minutos. Mostramos os espaços, ouvimos a sua ideia e enviamos uma proposta à medida depois da visita.</p>
-      <a class="btn btn--limao" href="visitas.html" style="margin-top:10px"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-en="Choose a day and time">Escolher dia e hora</span></a>
-    </div>
-    <div class="hours">
-      <dl>
-        <dt data-en="Mon to Fri">Segunda a sexta</dt><dd>9h – 17h</dd>
-        <dt data-en="Sat and Sun">Sábado e domingo</dt><dd>9h – 12h</dd>
-      </dl>
-      <p class="small" style="margin-top:18px" data-en="Rua Nova da Bajouca 572, 4475-144 Gemunde, Maia">Rua Nova da Bajouca 572, 4475-144 Gemunde, Maia</p>
-    </div>
+    <p style="margin-top:18px"><a class="link" style="color:var(--limao)" href="eventos.html#reveillon" data-en="See New Year's Eve">Ver o Réveillon</a></p>
   </div>
 </section>
 
 </main>
+<section class="final-cta" aria-labelledby="final-titulo">
+  <div class="wrap">
+    <h2 id="final-titulo" data-en="Come and see the Quinta.">Venha conhecer a Quinta.</h2>
+    <p data-en="30 to 60 minute visits, with time to see the hall, the garden and the lounge and talk about your event.">Visitas de 30 a 60 minutos, com tempo para ver o salão, o jardim e o lounge e falar do seu evento.</p>
+    <a class="btn btn--limao btn--big" href="visitas.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-en="Book a visit">Agendar visita</span></a>
+    <p class="hours-line" data-en="Visits: weekdays 9am–5pm, weekends 9am–12pm">Visitas: dias úteis 9h–17h, fins de semana 9h–12h</p>
+  </div>
+</section>
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
@@ -211,6 +256,7 @@
 <li><a href="espacos.html" data-en="Spaces">Espaços</a></li>
 <li><a href="eventos.html" data-en="Events">Eventos</a></li>
 <li><a href="galeria.html" data-en="Gallery">Galeria</a></li>
+<li><a href="avaliacoes.html" data-en="Reviews">Avaliações</a></li>
 <li><a href="visitas.html" data-en="Book a visit">Agendar visita</a></li>
 <li><a href="contactos.html" data-en="Contact">Contactos</a></li></ul>
       </div>
@@ -239,7 +285,16 @@
   </div>
 </footer>
 <a class="wa-float" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino." aria-label="Falar pelo WhatsApp" data-en-aria="Talk on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg><span class="txt" data-en="Talk to us">Fale connosco</span></a>
+<div class="dock" aria-label="Ações rápidas" data-en-aria="Quick actions">
+  <button type="button" class="dock-wa dock-menu" aria-label="Abrir menu" data-en-aria="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  <a class="dock-wa" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino." aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg></a>
+  <a class="btn btn--limao" href="visitas.html"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span data-en="Book a visit">Agendar visita</span></a>
+</div>
 <script src="assets/js/main.js"></script>
-
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="assets/js/anim.js" defer></script>
+<script type="module" src="assets/js/aerial.js"></script>
 </body>
 </html>

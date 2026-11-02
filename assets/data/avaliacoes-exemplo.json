@@ -1,0 +1,13 @@
+[
+  {
+    "nome": "Nome como o cliente escreveu",
+    "evento": "Casamento",
+    "evento_en": "Wedding",
+    "quando": "junho de 2026",
+    "estrelas": 5,
+    "texto": "Texto da avaliação, tal como foi enviado.",
+    "texto_en": "Tradução opcional para inglês.",
+    "fotos": ["assets/reviews/nome-1.jpg"],
+    "resposta": "Resposta opcional da Quinta."
+  }
+]

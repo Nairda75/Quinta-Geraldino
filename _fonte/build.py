@@ -16,6 +16,7 @@ NAV = [
     ("espacos", "espacos.html", "Espaços", "Spaces"),
     ("eventos", "eventos.html", "Eventos", "Events"),
     ("galeria", "galeria.html", "Galeria", "Gallery"),
+    ("avaliacoes", "avaliacoes.html", "Avaliações", "Reviews"),
     ("visitas", "visitas.html", "Agendar visita", "Book a visit"),
     ("contactos", "contactos.html", "Contactos", "Contact"),
 ]
@@ -28,6 +29,9 @@ ICON = {
  "left": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg>',
  "right": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg>',
  "mail": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>',
+ "star": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8L12 2.8Z"/></svg>',
+ "check": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>',
+ "camera": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>',
  "pin": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.8" r="2.3"/></svg>',
 }
 
@@ -112,6 +116,37 @@ def header(active):
   </div>
 </div>'''
 
+FINAL = {
+    "visit": ("Venha conhecer a Quinta.", "Come and see the Quinta.",
+              "Visitas de 30 a 60 minutos, com tempo para ver o salão, o jardim e o lounge e falar do seu evento.",
+              "30 to 60 minute visits, with time to see the hall, the garden and the lounge and talk about your event."),
+    "wa": ("Prefere falar diretamente?", "Would you rather talk directly?",
+           "Envie uma mensagem pelo WhatsApp e respondemos o mais depressa possível.",
+           "Send us a WhatsApp message and we'll reply as soon as we can."),
+}
+
+def final_cta(kind):
+    t, te, p, pe = FINAL[kind]
+    if kind == "wa":
+        btn = f'''<a class="btn btn--limao btn--big" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de falar sobre um evento na Quinta Geraldino." data-wa-en="Hello! I would like to talk about an event at Quinta Geraldino.">{ICON['wa']}<span data-en="Talk on WhatsApp">Falar pelo WhatsApp</span></a>'''
+    else:
+        btn = f'''<a class="btn btn--limao btn--big" href="visitas.html">{ICON['cal']}<span data-en="Book a visit">Agendar visita</span></a>'''
+    return f'''<section class="final-cta" aria-labelledby="final-titulo">
+  <div class="wrap">
+    <h2 id="final-titulo" data-en="{te}">{t}</h2>
+    <p data-en="{pe}">{p}</p>
+    {btn}
+    <p class="hours-line" data-en="Visits: weekdays 9am–5pm, weekends 9am–12pm">Visitas: dias úteis 9h–17h, fins de semana 9h–12h</p>
+  </div>
+</section>'''
+
+def dock():
+    return f'''<div class="dock" aria-label="Ações rápidas" data-en-aria="Quick actions">
+  <button type="button" class="dock-wa dock-menu" aria-label="Abrir menu" data-en-aria="Open menu">{ICON['menu']}</button>
+  <a class="dock-wa" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino." aria-label="WhatsApp">{ICON['wa']}</a>
+  <a class="btn btn--limao" href="visitas.html">{ICON['cal']}<span data-en="Book a visit">Agendar visita</span></a>
+</div>'''
+
 def footer(active):
     pages = '\n'.join(f'<li><a href="{href}" data-en="{en}">{pt}</a></li>' for key, href, pt, en in NAV)
     wa = '' if active == 'visitas' else f'''
@@ -151,8 +186,12 @@ def footer(active):
     </div>
   </div>
 </footer>{wa}
+{dock()}
 <script src="assets/js/main.js"></script>
-{''}'''
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/lenis.min.js" defer></script>
+<script src="assets/js/anim.js" defer></script>'''
 
 def gallery_html():
     labels = {"casamentos": ("Casamento", "Wedding"), "batizados": ("Batizado", "Christening"),
@@ -182,12 +221,15 @@ def build():
         m = re.match(r'<!--(\{.*?\})-->\s*', src, re.S)
         meta = json.loads(m.group(1)); body = src[m.end():]
         body = body.replace('{{GALLERY}}', gal)
+        # o vídeo de drone só entra no site quando o ficheiro existir
+        if not os.path.exists(os.path.join(OUT, 'assets', 'video', 'quinta-drone.mp4')):
+            body = re.sub(r'\s*<video[^>]*data-src="assets/video/quinta-drone\.mp4"[^>]*></video>', '', body)
         for k, v in counts.items(): body = body.replace('{{N_' + k + '}}', str(v))
         body = body.replace('{{N_all}}', str(sum(counts.values())))
         for k, v in ICON.items(): body = body.replace('{{icon:' + k + '}}', v)
         body = re.sub(r'<qg-img\s+([^>]*)>', img_macro, body)
-        page = (head(meta) + f'\n<body class="{meta.get("body", "page-inner")}">\n' + header(meta['nav'])
-                + '\n<main id="conteudo">\n' + body + '\n</main>\n' + footer(meta['nav'])
+        page = (head(meta) + f'\n<body class="{meta.get("body", "page-inner")} page-{meta['nav']}">\n' + header(meta['nav'])
+                + '\n<main id="conteudo">\n' + body + '\n</main>\n' + final_cta(meta.get('cta', 'visit')) + '\n' + footer(meta['nav'])
                 + meta.get('extra_js', '') + '\n</body>\n</html>\n')
         open(f'{OUT}/{meta["file"]}', 'w', encoding='utf-8').write(page)
         print('ok', meta['file'])

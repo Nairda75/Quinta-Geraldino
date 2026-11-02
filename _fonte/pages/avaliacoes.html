@@ -1,0 +1,106 @@
+<!--{"file":"avaliacoes.html","title":"Avaliações | Quinta Geraldino","title_en":"Reviews | Quinta Geraldino","desc":"Avaliações e fotografias de quem já celebrou na Quinta Geraldino, em Gemunde, Maia. Partilhe também a sua experiência.","nav":"avaliacoes","extra_js":"\n<script src=\"assets/js/avaliacoes.js\" defer></script>"}-->
+<section class="page-hero">
+  <div class="wrap">
+    <h1 data-en="Reviews">Avaliações</h1>
+    <p class="lead" data-en="What couples and families who celebrated at the Quinta say about it, with their own photos. Every review comes from a real guest and is checked before it appears.">O que dizem os casais e as famílias que celebraram na Quinta, com as suas próprias fotografias. Todas as avaliações são de clientes reais e verificadas antes de aparecerem.</p>
+  </div>
+</section>
+
+<section class="section--tight paper" aria-labelledby="google-titulo">
+  <div class="wrap trust">
+    <div class="score">4,4</div>
+    <div>
+      <div class="stars" aria-hidden="true">{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}{{icon:star}}</div>
+      <h2 id="google-titulo" style="font-size:clamp(1.5rem,3vw,2.2rem);margin-top:8px" data-en="432 reviews on Google">432 avaliações no Google</h2>
+      <p class="small" style="margin-top:6px" data-en="Average of 4.4 out of 5, November 2026. Google reviews are independent from the Quinta.">Média de 4,4 em 5, em novembro de 2026. As avaliações do Google são independentes da Quinta.</p>
+    </div>
+    <a class="link" href="https://maps.google.com/?cid=17575221985477619711" target="_blank" rel="noopener" data-en="Read them on Google">Ler no Google</a>
+  </div>
+</section>
+
+<section class="wrap" style="padding:clamp(56px,8vw,110px) var(--gutter)" aria-labelledby="lista-titulo">
+  <div class="reviews-layout">
+    <div>
+      <h2 id="lista-titulo" style="margin-bottom:clamp(24px,3vw,36px)" data-en="Guests' experiences">Experiências de quem esteve cá</h2>
+      <div class="reviews" id="reviews" aria-live="polite"></div>
+      <div class="reviews-empty" id="reviews-empty" hidden>
+        <h3 data-en="Be the first to share your experience">Seja o primeiro a partilhar a sua experiência</h3>
+        <p style="margin:0 auto" data-en="Celebrated at the Quinta? Tell us how it went and add your photos. Your review appears here once the Quinta has checked it.">Celebrou na Quinta? Conte-nos como correu e junte as suas fotografias. A avaliação aparece aqui depois de verificada pela Quinta.</p>
+      </div>
+    </div>
+
+    <div class="panel" aria-labelledby="form-titulo">
+      <form id="review-form" class="form" name="avaliacao" method="POST" action="/avaliacoes.html?enviado=1" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="form-name" value="avaliacao">
+        <p hidden><label>Não preencher: <input name="bot-field"></label></p>
+        <input type="file" name="foto1" hidden tabindex="-1" aria-hidden="true">
+        <input type="file" name="foto2" hidden tabindex="-1" aria-hidden="true">
+        <input type="file" name="foto3" hidden tabindex="-1" aria-hidden="true">
+        <div>
+          <h2 id="form-titulo" style="font-size:clamp(1.6rem,2.6vw,2.1rem)" data-en="Share your experience">Partilhe a sua experiência</h2>
+          <span class="step-label" data-en="It takes 2 minutes. Your email is never published.">Demora 2 minutos. O seu email nunca é publicado.</span>
+        </div>
+        <fieldset class="field" style="border:0;padding:0;margin:0">
+          <legend style="font-weight:600;font-size:.93rem;margin-bottom:6px" data-en="Your rating">A sua nota</legend>
+          <div class="rating-input">
+            <input type="radio" id="r5" name="estrelas" value="5"><label for="r5" aria-label="5 estrelas">{{icon:star}}</label>
+            <input type="radio" id="r4" name="estrelas" value="4"><label for="r4" aria-label="4 estrelas">{{icon:star}}</label>
+            <input type="radio" id="r3" name="estrelas" value="3"><label for="r3" aria-label="3 estrelas">{{icon:star}}</label>
+            <input type="radio" id="r2" name="estrelas" value="2"><label for="r2" aria-label="2 estrelas">{{icon:star}}</label>
+            <input type="radio" id="r1" name="estrelas" value="1"><label for="r1" aria-label="1 estrela">{{icon:star}}</label>
+          </div>
+        </fieldset>
+        <div class="row2">
+          <div class="field">
+            <label for="a-nome" data-en="Name (as it will appear)">Nome (como vai aparecer)</label>
+            <input id="a-nome" name="nome" autocomplete="name" required placeholder="ex.: Ana e Rui" data-en-ph="e.g. Ana and Rui">
+          </div>
+          <div class="field">
+            <label for="a-email">Email <span class="hint" data-en="(not published)">(não publicado)</span></label>
+            <input id="a-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="a-tipo" data-en="Event">Evento</label>
+            <select id="a-tipo" name="evento" required>
+              <option value="" data-en="Choose">Escolher</option>
+              <option data-en="Wedding">Casamento</option>
+              <option data-en="Christening">Batizado</option>
+              <option data-en="Birthday">Aniversário</option>
+              <option data-en="Corporate event">Evento de empresa</option>
+              <option data-en="New Year's Eve">Réveillon</option>
+              <option data-en="Guest at an event">Convidado num evento</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="a-data" data-en="When">Quando</label>
+            <input id="a-data" name="quando" placeholder="ex.: junho de 2026" data-en-ph="e.g. June 2026">
+          </div>
+        </div>
+        <div class="field">
+          <label for="a-texto" data-en="How was it?">Como correu?</label>
+          <textarea id="a-texto" name="comentario" required minlength="20" placeholder="O que gostou mais? O que podia ser melhor?" data-en-ph="What did you like most? What could be better?"></textarea>
+        </div>
+        <div class="field">
+          <span style="font-weight:600;font-size:.93rem"><span data-en="Photos">Fotografias</span> <span class="hint" data-en="(up to 3, optional)">(até 3, opcional)</span></span>
+          <label class="upload" id="upload">
+            <input type="file" id="a-fotos" accept="image/*" multiple>
+            {{icon:camera}}
+            <span style="display:block;margin-top:6px" data-en="Add photos from your phone">Juntar fotografias do telemóvel</span>
+          </label>
+          <div class="previews" id="previews"></div>
+        </div>
+        <label class="check"><input type="checkbox" name="autorizacao" value="sim" required><span data-en="I authorise Quinta Geraldino to publish my name, review and photos on this website. The people in the photos agreed to it.">Autorizo a Quinta Geraldino a publicar o meu nome, a avaliação e as fotografias neste site. As pessoas que aparecem nas fotografias concordaram.</span></label>
+        <p class="error" id="review-error" role="alert" hidden></p>
+        <button class="btn btn--musgo" type="submit" style="justify-content:center"><span data-en="Send review">Enviar avaliação</span></button>
+        <p class="small" style="margin:0" data-en="Reviews are checked by the Quinta before they appear, usually within a few days. Negative reviews are published too, as long as they are respectful.">As avaliações são verificadas pela Quinta antes de aparecerem, normalmente em poucos dias. As avaliações negativas também são publicadas, desde que sejam respeitosas.</p>
+      </form>
+      <div class="form-done" id="review-done" hidden>
+        {{icon:check}}
+        <h3 style="margin:14px 0 8px" data-en="Thank you!">Obrigado!</h3>
+        <p style="margin:0 auto" data-en="Your review was sent. It will appear on this page once it has been checked.">A sua avaliação foi enviada. Vai aparecer nesta página depois de verificada.</p>
+      </div>
+    </div>
+  </div>
+</section>
