@@ -11,43 +11,43 @@
     pt: { months: ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"],
           dows: ["Seg","Ter","Qua","Qui","Sex","Sáb","Dom"],
           days: ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"],
-          chosen: function (d, h) { return "Visita marcada para <strong>" + d + "</strong>, às <strong>" + h + "</strong>."; },
+          chosen: function (d, h) { return "Visita pretendida para <strong>" + d + "</strong>, às <strong>" + h + "</strong>."; },
           noDay: "Ainda não escolheu o dia e a hora.",
           noSlot: function (d) { return "Escolha uma hora para " + d + "."; },
           errSlot: "Escolha o dia e a hora da visita no calendário.",
-          errName: "Indique o seu nome.", errTel: "Indique um telemóvel válido para podermos confirmar.", errTipo: "Escolha o tipo de evento.",
+          errName: "Indique o seu nome.", errTel: "Indique um número de telemóvel válido, para que possamos confirmar a visita.", errTipo: "Escolha o tipo de evento.",
           types: { casamento: "Casamento", batizado: "Batizado", aniversario: "Aniversário", empresa: "Evento de empresa", outro: "Outro" },
           msg: function (f) {
-            return "Olá! Gostava de agendar uma visita à Quinta Geraldino.\n\n" +
-              "📅 Visita: " + f.dia + " às " + f.hora + "\n" +
-              "👤 Nome: " + f.nome + "\n" +
-              "📞 Telemóvel: " + f.tel + "\n" +
-              "🎉 Evento: " + f.tipo +
-              (f.data ? "\n🗓 Data do evento: " + f.data : "") +
-              (f.conv ? "\n👥 Convidados (aprox.): " + f.conv : "") +
+            return "Cumprimentos. Gostaria de solicitar uma visita à Quinta Geraldino.\n\n" +
+              "Visita: " + f.dia + " às " + f.hora + "\n" +
+              "Nome: " + f.nome + "\n" +
+              "Telemóvel: " + f.tel + "\n" +
+              "Tipo de evento: " + f.tipo +
+              (f.data ? "\nData do evento: " + f.data : "") +
+              (f.conv ? "\nNúmero aproximado de convidados: " + f.conv : "") +
               (f.msg ? "\n\n" + f.msg : "") +
-              "\n\nAguardo confirmação. Obrigado!";
+              "\n\nAguardo a vossa confirmação. Com os melhores cumprimentos, " + f.nome + ".";
           },
           subject: "Pedido de visita à Quinta Geraldino" },
     en: { months: ["January","February","March","April","May","June","July","August","September","October","November","December"],
           dows: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
           days: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-          chosen: function (d, h) { return "Visit on <strong>" + d + "</strong> at <strong>" + h + "</strong>."; },
+          chosen: function (d, h) { return "Requested visit on <strong>" + d + "</strong> at <strong>" + h + "</strong>."; },
           noDay: "No day or time chosen yet.",
           noSlot: function (d) { return "Choose a time for " + d + "."; },
           errSlot: "Choose the day and time of your visit in the calendar.",
-          errName: "Please enter your name.", errTel: "Please enter a valid phone number so we can confirm.", errTipo: "Choose the type of event.",
+          errName: "Please enter your name.", errTel: "Please enter a valid telephone number so that we can confirm the visit.", errTipo: "Choose the type of event.",
           types: { casamento: "Wedding", batizado: "Christening", aniversario: "Birthday", empresa: "Corporate event", outro: "Other" },
           msg: function (f) {
-            return "Hello! I would like to book a visit to Quinta Geraldino.\n\n" +
-              "📅 Visit: " + f.dia + " at " + f.hora + "\n" +
-              "👤 Name: " + f.nome + "\n" +
-              "📞 Phone: " + f.tel + "\n" +
-              "🎉 Event: " + f.tipo +
-              (f.data ? "\n🗓 Event date: " + f.data : "") +
-              (f.conv ? "\n👥 Guests (approx.): " + f.conv : "") +
+            return "Good day. I would like to request a visit to Quinta Geraldino.\n\n" +
+              "Visit: " + f.dia + " at " + f.hora + "\n" +
+              "Name: " + f.nome + "\n" +
+              "Telephone: " + f.tel + "\n" +
+              "Type of event: " + f.tipo +
+              (f.data ? "\nEvent date: " + f.data : "") +
+              (f.conv ? "\nApproximate number of guests: " + f.conv : "") +
               (f.msg ? "\n\n" + f.msg : "") +
-              "\n\nLooking forward to your confirmation. Thank you!";
+              "\n\nI look forward to your confirmation. Kind regards, " + f.nome + ".";
           },
           subject: "Visit request – Quinta Geraldino" }
   };

@@ -66,19 +66,19 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var fd = new FormData(form), bad = null;
-    if (!fd.get("estrelas")) bad = T("Escolha uma nota de 1 a 5 estrelas.", "Choose a rating from 1 to 5 stars.");
-    else if (!String(fd.get("nome")).trim()) bad = T("Indique o nome que deve aparecer.", "Enter the name that should appear.");
-    else if (!/^\S+@\S+\.\S+$/.test(String(fd.get("email")))) bad = T("Indique um email válido. Não é publicado.", "Enter a valid email. It is not published.");
-    else if (!fd.get("evento")) bad = T("Escolha o tipo de evento.", "Choose the type of event.");
-    else if (String(fd.get("comentario")).trim().length < 20) bad = T("Conte-nos um pouco mais (pelo menos 20 caracteres).", "Tell us a little more (at least 20 characters).");
-    else if (!fd.get("autorizacao")) bad = T("Para publicar precisamos da sua autorização.", "We need your permission to publish.");
+    if (!fd.get("estrelas")) bad = T("Escolha uma nota de 1 a 5 estrelas.", "Please choose a rating from 1 to 5 stars.");
+    else if (!String(fd.get("nome")).trim()) bad = T("Indique o nome com que pretende ser apresentado.", "Please enter the name with which you wish to be displayed.");
+    else if (!/^\S+@\S+\.\S+$/.test(String(fd.get("email")))) bad = T("Indique um endereço de email válido. Não será publicado.", "Please enter a valid email address. It will not be published.");
+    else if (!fd.get("evento")) bad = T("Escolha o tipo de evento.", "Please choose the type of event.");
+    else if (String(fd.get("comentario")).trim().length < 20) bad = T("Por favor, desenvolva um pouco mais o seu comentário (mínimo de 20 caracteres).", "Please expand a little on your comment (minimum of 20 characters).");
+    else if (!fd.get("autorizacao")) bad = T("A publicação carece da sua autorização.", "Publication requires your permission.");
     if (bad) { errEl.textContent = bad; errEl.hidden = false; return; }
     errEl.hidden = true;
     ["foto1", "foto2", "foto3"].forEach(function (k, i) { fd.delete(k); if (photos[i]) fd.append(k, photos[i]); });
     var btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.style.opacity = ".6";
     fetch("/", { method: "POST", body: fd })
       .then(function (r) { if (!r.ok) throw new Error(r.status); form.hidden = true; done.hidden = false; done.scrollIntoView({ behavior: "smooth", block: "center" }); })
-      .catch(function () { errEl.textContent = T("Não foi possível enviar agora. Verifique a ligação à internet e tente outra vez.", "We couldn't send it right now. Check your internet connection and try again."); errEl.hidden = false; })
+      .catch(function () { errEl.textContent = T("Não foi possível concluir o envio. Verifique a ligação à internet e tente novamente.", "We were unable to send your review. Please check your internet connection and try again."); errEl.hidden = false; })
       .then(function () { btn.disabled = false; btn.style.opacity = ""; });
   });
   if (/enviado=1/.test(location.search)) { form.hidden = true; done.hidden = false; }

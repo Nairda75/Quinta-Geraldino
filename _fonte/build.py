@@ -35,7 +35,7 @@ ICON = {
  "pin": '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-6.2-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.8" r="2.3"/></svg>',
 }
 
-LOGO = '''<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#547968"/><text x="24" y="20.5" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="15" fill="#F1EDE4">Q</text><path d="M18 24.5h12" stroke="#F1EDE4" stroke-width=".8"/><text x="24" y="40" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="15" fill="#F1EDE4">G</text></svg>'''
+LOGO = '''<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#547968"/><text x="24" y="20.5" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="15" fill="#F5ECDB">Q</text><path d="M18 24.5h12" stroke="#F5ECDB" stroke-width=".8"/><text x="24" y="40" text-anchor="middle" font-family="Gloock, Georgia, serif" font-size="15" fill="#F5ECDB">G</text></svg>'''
 
 def esc(s): return html.escape(s, quote=True)
 
@@ -112,23 +112,23 @@ def header(active):
   </nav>
   <div class="bottom">
     {lang}
-    <a class="btn btn--limao" href="https://wa.me/351916604527" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino.">{ICON['wa']}<span data-en="Talk on WhatsApp">Falar pelo WhatsApp</span></a>
+    <a class="btn btn--limao" href="https://wa.me/351916604527" data-wa="Cumprimentos. Gostaria de obter mais informações sobre a Quinta Geraldino." data-wa-en="Good day. I would like to find out more about Quinta Geraldino.">{ICON['wa']}<span data-en="Contact us on WhatsApp">Contactar pelo WhatsApp</span></a>
   </div>
 </div>'''
 
 FINAL = {
     "visit": ("Venha conhecer a Quinta.", "Come and see the Quinta.",
-              "Visitas de 30 a 60 minutos, com tempo para ver o salão, o jardim e o lounge e falar do seu evento.",
-              "30 to 60 minute visits, with time to see the hall, the garden and the lounge and talk about your event."),
-    "wa": ("Prefere falar diretamente?", "Would you rather talk directly?",
-           "Envie uma mensagem pelo WhatsApp e respondemos o mais depressa possível.",
-           "Send us a WhatsApp message and we'll reply as soon as we can."),
+              "Visitas de 30 a 60 minutos, para conhecer o salão, o jardim e o lounge e conversar sobre o seu evento.",
+              "Visits of 30 to 60 minutes, to see the hall, the garden and the lounge and to discuss your event."),
+    "wa": ("Prefere um contacto direto?", "Would you prefer to contact us directly?",
+           "Envie-nos uma mensagem através do WhatsApp e responderemos com a maior brevidade.",
+           "Send us a message through WhatsApp and we will reply as soon as possible."),
 }
 
 def final_cta(kind):
     t, te, p, pe = FINAL[kind]
     if kind == "wa":
-        btn = f'''<a class="btn btn--limao btn--big" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de falar sobre um evento na Quinta Geraldino." data-wa-en="Hello! I would like to talk about an event at Quinta Geraldino.">{ICON['wa']}<span data-en="Talk on WhatsApp">Falar pelo WhatsApp</span></a>'''
+        btn = f'''<a class="btn btn--limao btn--big" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Cumprimentos. Gostaria de falar sobre a realização de um evento na Quinta Geraldino." data-wa-en="Good day. I would like to discuss holding an event at Quinta Geraldino.">{ICON['wa']}<span data-en="Contact us on WhatsApp">Contactar pelo WhatsApp</span></a>'''
     else:
         btn = f'''<a class="btn btn--limao btn--big" href="visitas.html">{ICON['cal']}<span data-en="Book a visit">Agendar visita</span></a>'''
     return f'''<section class="final-cta" aria-labelledby="final-titulo">
@@ -143,20 +143,20 @@ def final_cta(kind):
 def dock():
     return f'''<div class="dock" aria-label="Ações rápidas" data-en-aria="Quick actions">
   <button type="button" class="dock-wa dock-menu" aria-label="Abrir menu" data-en-aria="Open menu">{ICON['menu']}</button>
-  <a class="dock-wa" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino." aria-label="WhatsApp">{ICON['wa']}</a>
+  <a class="dock-wa" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Cumprimentos. Gostaria de obter mais informações sobre a Quinta Geraldino." data-wa-en="Good day. I would like to find out more about Quinta Geraldino." aria-label="WhatsApp">{ICON['wa']}</a>
   <a class="btn btn--limao" href="visitas.html">{ICON['cal']}<span data-en="Book a visit">Agendar visita</span></a>
 </div>'''
 
 def footer(active):
     pages = '\n'.join(f'<li><a href="{href}" data-en="{en}">{pt}</a></li>' for key, href, pt, en in NAV)
     wa = '' if active == 'visitas' else f'''
-<a class="wa-float" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Olá! Gostava de saber mais sobre a Quinta Geraldino." data-wa-en="Hello! I would like to know more about Quinta Geraldino." aria-label="Falar pelo WhatsApp" data-en-aria="Talk on WhatsApp">{ICON['wa']}<span class="txt" data-en="Talk to us">Fale connosco</span></a>'''
+<a class="wa-float" href="https://wa.me/351916604527" target="_blank" rel="noopener" data-wa="Cumprimentos. Gostaria de obter mais informações sobre a Quinta Geraldino." data-wa-en="Good day. I would like to find out more about Quinta Geraldino." aria-label="Contactar pelo WhatsApp" data-en-aria="Contact us on WhatsApp">{ICON['wa']}<span class="txt" data-en="Contact us">Contacte-nos</span></a>'''
     return f'''<footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
       <div>
         <a class="brand" href="index.html">{LOGO}<span>Quinta Geraldino</span></a>
-        <p data-en="A welcoming place for weddings, christenings and celebrations, where we want everyone to feel at home.">Um lugar acolhedor para casamentos, batizados e celebrações, onde queremos que todos se sintam em casa.</p>
+        <p data-en="A welcoming venue for weddings, christenings and celebrations, where every guest is received with distinction.">Um espaço acolhedor para casamentos, batizados e celebrações, onde cada convidado é recebido com distinção.</p>
       </div>
       <div>
         <h3 data-en="Pages">Páginas</h3>
@@ -195,7 +195,7 @@ def footer(active):
 
 def gallery_html():
     labels = {"casamentos": ("Casamento", "Wedding"), "batizados": ("Batizado", "Christening"),
-              "festas": ("Festa", "Party"), "natal": ("Festas de Natal", "Christmas"),
+              "festas": ("Celebração", "Celebration"), "natal": ("Natal", "Christmas"),
               "mesas": ("Mesa e detalhes", "Table and details"), "espacos": ("Espaços da Quinta", "Spaces at the Quinta")}
     # intercalar categorias para que a vista "Todas" seja variada
     groups = {}

@@ -2,7 +2,7 @@
 <section class="page-hero">
   <div class="wrap">
     <h1 data-en="Reviews">Avaliações</h1>
-    <p class="lead" data-en="What couples and families who celebrated at the Quinta say about it, with their own photos. Every review comes from a real guest and is checked before it appears.">O que dizem os casais e as famílias que celebraram na Quinta, com as suas próprias fotografias. Todas as avaliações são de clientes reais e verificadas antes de aparecerem.</p>
+    <p class="lead" data-en="Testimonials from couples and families who celebrated at the Quinta, accompanied by their own photographs. Every review comes from a real client and is verified before it is published.">Testemunhos de casais e famílias que celebraram na Quinta, acompanhados das suas próprias fotografias. Todas as avaliações provêm de clientes reais e são verificadas antes de serem publicadas.</p>
   </div>
 </section>
 
@@ -21,11 +21,11 @@
 <section class="wrap" style="padding:clamp(56px,8vw,110px) var(--gutter)" aria-labelledby="lista-titulo">
   <div class="reviews-layout">
     <div>
-      <h2 id="lista-titulo" style="margin-bottom:clamp(24px,3vw,36px)" data-en="Guests' experiences">Experiências de quem esteve cá</h2>
+      <h2 id="lista-titulo" style="margin-bottom:clamp(24px,3vw,36px)" data-en="Testimonials from those who celebrated with us">Testemunhos de quem celebrou connosco</h2>
       <div class="reviews" id="reviews" aria-live="polite"></div>
       <div class="reviews-empty" id="reviews-empty" hidden>
         <h3 data-en="Be the first to share your experience">Seja o primeiro a partilhar a sua experiência</h3>
-        <p style="margin:0 auto" data-en="Celebrated at the Quinta? Tell us how it went and add your photos. Your review appears here once the Quinta has checked it.">Celebrou na Quinta? Conte-nos como correu e junte as suas fotografias. A avaliação aparece aqui depois de verificada pela Quinta.</p>
+        <p style="margin:0 auto" data-en="Celebrated at the Quinta? Share your experience and add your photographs. Your review will be published on this page once it has been verified by the Quinta.">Celebrou na Quinta? Partilhe a sua experiência e acrescente as suas fotografias. A avaliação será publicada nesta página após verificação pela Quinta.</p>
       </div>
     </div>
 
@@ -38,7 +38,7 @@
         <input type="file" name="foto3" hidden tabindex="-1" aria-hidden="true">
         <div>
           <h2 id="form-titulo" style="font-size:clamp(1.6rem,2.6vw,2.1rem)" data-en="Share your experience">Partilhe a sua experiência</h2>
-          <span class="step-label" data-en="It takes 2 minutes. Your email is never published.">Demora 2 minutos. O seu email nunca é publicado.</span>
+          <span class="step-label" data-en="It takes about 2 minutes. Your email will never be published.">Demora cerca de 2 minutos. O seu email nunca será publicado.</span>
         </div>
         <fieldset class="field" style="border:0;padding:0;margin:0">
           <legend style="font-weight:600;font-size:.93rem;margin-bottom:6px" data-en="Your rating">A sua nota</legend>
@@ -52,7 +52,7 @@
         </fieldset>
         <div class="row2">
           <div class="field">
-            <label for="a-nome" data-en="Name (as it will appear)">Nome (como vai aparecer)</label>
+            <label for="a-nome" data-en="Name (as it will be displayed)">Nome (tal como será apresentado)</label>
             <input id="a-nome" name="nome" autocomplete="name" required placeholder="ex.: Ana e Rui" data-en-ph="e.g. Ana and Rui">
           </div>
           <div class="field">
@@ -79,27 +79,27 @@
           </div>
         </div>
         <div class="field">
-          <label for="a-texto" data-en="How was it?">Como correu?</label>
-          <textarea id="a-texto" name="comentario" required minlength="20" placeholder="O que gostou mais? O que podia ser melhor?" data-en-ph="What did you like most? What could be better?"></textarea>
+          <label for="a-texto" data-en="How was your experience?">Como decorreu a sua experiência?</label>
+          <textarea id="a-texto" name="comentario" required minlength="20" placeholder="O que mais apreciou? Em que aspetos poderíamos melhorar?" data-en-ph="What did you appreciate most? Where could we improve?"></textarea>
         </div>
         <div class="field">
-          <span style="font-weight:600;font-size:.93rem"><span data-en="Photos">Fotografias</span> <span class="hint" data-en="(up to 3, optional)">(até 3, opcional)</span></span>
+          <span style="font-weight:600;font-size:.93rem"><span data-en="Photographs">Fotografias</span> <span class="hint" data-en="(up to 3, optional)">(até 3, opcional)</span></span>
           <label class="upload" id="upload">
             <input type="file" id="a-fotos" accept="image/*" multiple>
             {{icon:camera}}
-            <span style="display:block;margin-top:6px" data-en="Add photos from your phone">Juntar fotografias do telemóvel</span>
+            <span style="display:block;margin-top:6px" data-en="Add photographs from your phone">Adicionar fotografias do telemóvel</span>
           </label>
           <div class="previews" id="previews"></div>
         </div>
-        <label class="check"><input type="checkbox" name="autorizacao" value="sim" required><span data-en="I authorise Quinta Geraldino to publish my name, review and photos on this website. The people in the photos agreed to it.">Autorizo a Quinta Geraldino a publicar o meu nome, a avaliação e as fotografias neste site. As pessoas que aparecem nas fotografias concordaram.</span></label>
+        <label class="check"><input type="checkbox" name="autorizacao" value="sim" required><span data-en="I authorise Quinta Geraldino to publish my name, review and photographs on this website. The people in the photographs have given their consent.">Autorizo a Quinta Geraldino a publicar o meu nome, a avaliação e as fotografias neste site. As pessoas que figuram nas fotografias deram o seu consentimento.</span></label>
         <p class="error" id="review-error" role="alert" hidden></p>
         <button class="btn btn--musgo" type="submit" style="justify-content:center"><span data-en="Send review">Enviar avaliação</span></button>
-        <p class="small" style="margin:0" data-en="Reviews are checked by the Quinta before they appear, usually within a few days. Negative reviews are published too, as long as they are respectful.">As avaliações são verificadas pela Quinta antes de aparecerem, normalmente em poucos dias. As avaliações negativas também são publicadas, desde que sejam respeitosas.</p>
+        <p class="small" style="margin:0" data-en="Reviews are verified by the Quinta before they are published, usually within a few days. Negative reviews are published as well, provided they are respectful.">As avaliações são verificadas pela Quinta antes de serem publicadas, normalmente em poucos dias. As avaliações negativas são igualmente publicadas, desde que redigidas com respeito.</p>
       </form>
       <div class="form-done" id="review-done" hidden>
         {{icon:check}}
-        <h3 style="margin:14px 0 8px" data-en="Thank you!">Obrigado!</h3>
-        <p style="margin:0 auto" data-en="Your review was sent. It will appear on this page once it has been checked.">A sua avaliação foi enviada. Vai aparecer nesta página depois de verificada.</p>
+        <h3 style="margin:14px 0 8px" data-en="Thank you very much.">Muito obrigado.</h3>
+        <p style="margin:0 auto" data-en="Your review has been submitted and will be published on this page once it has been verified.">A sua avaliação foi enviada e será publicada nesta página após verificação.</p>
       </div>
     </div>
   </div>
