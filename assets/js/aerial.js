@@ -35,7 +35,7 @@ function init() {
   canvasHost.appendChild(renderer.domElement);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.Fog(0xdfe2d5, 260, 620);
+  scene.fog = new THREE.Fog(0xe6d9c1, 260, 620);
   const camera = new THREE.PerspectiveCamera(32, 1, 1, 2000);
 
   scene.add(new THREE.HemisphereLight(0xf6f1e4, 0x5d6b47, 1.25));
