@@ -126,6 +126,25 @@ function init() {
   ground.receiveShadow = true;
   scene.add(ground);
 
+  // campo verde "infinito" à volta da maquete (esconde as arestas do terreno)
+  const fc = document.createElement("canvas"); fc.width = fc.height = 256;
+  const fg = fc.getContext("2d");
+  fg.fillStyle = "#6c844d"; fg.fillRect(0, 0, 256, 256);
+  fg.strokeStyle = "rgba(255,255,255,.06)"; fg.lineWidth = 3;
+  for (let i = -256; i < 512; i += 12) { fg.beginPath(); fg.moveTo(i, 0); fg.lineTo(i + 256, 256); fg.stroke(); }
+  fg.strokeStyle = "rgba(40,55,25,.18)"; fg.lineWidth = 2; fg.strokeRect(0, 0, 256, 256);
+  const fieldTex = new THREE.CanvasTexture(fc);
+  fieldTex.colorSpace = THREE.SRGBColorSpace;
+  fieldTex.wrapS = fieldTex.wrapT = THREE.RepeatWrapping;
+  fieldTex.repeat.set(60, 60);
+  fieldTex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
+  const field = new THREE.Mesh(new THREE.PlaneGeometry(9000, 9000), new THREE.MeshLambertMaterial({ map: fieldTex }));
+  field.rotation.x = -Math.PI / 2;
+  field.position.set(ground.position.x, -0.15, ground.position.z);
+  field.receiveShadow = true;
+  scene.add(field);
+  camera.far = 6000; camera.updateProjectionMatrix();
+
   /* ---------- Edifícios ---------- */
   const mat = (c) => new THREE.MeshLambertMaterial({ color: c });
   const wallM = mat(0xefe9dc), roofWhite = mat(0xf4f5f2), roofRed = mat(0xb4553a), roofGrey = mat(0x8e9290), glassM = mat(0x51605a);
