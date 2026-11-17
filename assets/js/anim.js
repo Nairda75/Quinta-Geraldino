@@ -99,7 +99,7 @@
   });
 
   /* ---------- Entrada do topo das páginas interiores e da vista aérea ---------- */
-  gsap.from(".page-hero .lead, .page-hero .crumb, .intro-kicker, .intro-sub, .intro-card .btn", { y: 24, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.12, delay: 0.45 });
+  gsap.from(".page-hero .lead, .page-hero .crumb, .intro-slogan, .intro-card .btn", { y: 24, opacity: 0, duration: 1, ease: "power3.out", stagger: 0.12, delay: 0.45 });
   gsap.from(".intro-card", { y: 40, scale: 0.96, opacity: 0, duration: 1.2, ease: "expo.out", delay: 0.05 });
   gsap.from(".site-header .wrap > *", { y: -20, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.08, delay: 0.1 });
 
